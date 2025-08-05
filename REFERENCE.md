@@ -8,6 +8,10 @@
 
 * [`patroni`](#patroni): Manages a Patroni instance
 
+### Defined types
+
+* [`patroni::instance`](#patroni--instance): configures and starts a single patroni instance
+
 ### Resource types
 
 * [`patroni_dcs_config`](#patroni_dcs_config): Manages Patroni DCS configuration options
@@ -1164,6 +1168,73 @@ Data type: `Optional[Stdlib::HTTPUrl]`
 URI for an http(s) proxy, used for pip commands
 
 Default value: `undef`
+
+## Defined types
+
+### <a name="patroni--instance"></a>`patroni::instance`
+
+configures and starts a single patroni instance
+
+* **Note** requires modern patroni package with patroni@.service file
+
+#### Parameters
+
+The following parameters are available in the `patroni::instance` defined type:
+
+* [`instance`](#-patroni--instance--instance)
+* [`ensure`](#-patroni--instance--ensure)
+* [`enable`](#-patroni--instance--enable)
+* [`config_replace`](#-patroni--instance--config_replace)
+* [`show_diff`](#-patroni--instance--show_diff)
+* [`config`](#-patroni--instance--config)
+
+##### <a name="-patroni--instance--instance"></a>`instance`
+
+Data type: `String[1]`
+
+the name for patroni service
+
+Default value: `$name`
+
+##### <a name="-patroni--instance--ensure"></a>`ensure`
+
+Data type: `Stdlib::Ensure::Service`
+
+state of the service
+
+Default value: `'running'`
+
+##### <a name="-patroni--instance--enable"></a>`enable`
+
+Data type: `Boolean`
+
+put service in autostart
+
+Default value: `true`
+
+##### <a name="-patroni--instance--config_replace"></a>`config_replace`
+
+Data type: `Boolean`
+
+Overwrite the config file when it was changed by hand. Set to false when you use `patronictl edit-config`
+
+Default value: `true`
+
+##### <a name="-patroni--instance--show_diff"></a>`show_diff`
+
+Data type: `Boolean`
+
+Enable/Disable diff output for the config file
+
+Default value: `true`
+
+##### <a name="-patroni--instance--config"></a>`config`
+
+Data type: `Hash`
+
+the hash with the config
+
+Default value: `{}`
 
 ## Resource types
 
