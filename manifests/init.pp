@@ -254,6 +254,8 @@
 #   Refer to Standby configuration `slot` setting
 # @param http_proxy
 #   URI for an http(s) proxy, used for pip commands
+# @param config_ensure management of the main config. The config isn't required when you run only patroni::instance resources
+#
 class patroni (
 
   # Global Settings

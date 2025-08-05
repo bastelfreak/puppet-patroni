@@ -153,6 +153,7 @@ The following parameters are available in the `patroni` class:
 * [`standby_cluster_port`](#-patroni--standby_cluster_port)
 * [`standby_cluster_primary_slot_name`](#-patroni--standby_cluster_primary_slot_name)
 * [`http_proxy`](#-patroni--http_proxy)
+* [`config_ensure`](#-patroni--config_ensure)
 
 ##### <a name="-patroni--scope"></a>`scope`
 
@@ -1168,6 +1169,14 @@ Data type: `Optional[Stdlib::HTTPUrl]`
 URI for an http(s) proxy, used for pip commands
 
 Default value: `undef`
+
+##### <a name="-patroni--config_ensure"></a>`config_ensure`
+
+Data type: `Enum['file','absent']`
+
+management of the main config. The config isn't required when you run only patroni::instance resources
+
+Default value: `'file'`
 
 ## Defined types
 
